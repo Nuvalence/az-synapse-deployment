@@ -37,8 +37,7 @@
     "variables": {        
         "sqlPoolName": "[toLower(concat(variables('workspaceName'),'p1'))]",
         "workspaceName": "[toLower(concat(parameters('synapseName'),'ws1'))]",
-        "location": "[resourceGroup().location]",
-        "roleNameGuid":"[newGuid()]"
+        "location": "[resourceGroup().location]"
     },
     "resources": [                   
         {
