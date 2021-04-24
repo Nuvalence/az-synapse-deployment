@@ -175,7 +175,7 @@
       "scope": "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "[variables('roleNameGuid')]",
+      "name": "[newGuid()]",
       "location": "[variables('location')]",
       "dependsOn": [        
         "[resourceId('Microsoft.Synapse/workspaces/', variables('workspaceName'))]"
