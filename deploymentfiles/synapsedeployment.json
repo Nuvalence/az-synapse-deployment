@@ -32,8 +32,16 @@
                 "description":"SQL Sku provisioned for Azure Synapse"
             },
             "allowedValues": ["DW100c","DW200c","DW300c","DW400c"]
-        }        
-    },
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify a role assignment - do not change this"
+      }        
+    }
+    }
+    ,
     "variables": {        
         "sqlPoolName": "[toLower(concat(variables('workspaceName'),'p1'))]",
         "workspaceName": "[toLower(concat(parameters('synapseName'),'ws1'))]",
@@ -174,7 +182,7 @@
       "scope": "[concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]",
       "type": "Microsoft.Authorization/roleAssignments",
       "apiVersion": "2020-04-01-preview",
-      "name": "[newGuid()]",
+      "name": "[parameters('roleNameGuid')]",
       "location": "[variables('location')]",
       "dependsOn": [        
         "[resourceId('Microsoft.Synapse/workspaces/', variables('workspaceName'))]"
