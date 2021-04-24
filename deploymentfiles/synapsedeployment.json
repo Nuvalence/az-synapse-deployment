@@ -3,28 +3,45 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
         },
         "storageAccountName":{
-            "type":"string"
+            "type":"string",
+            "metadata": {
+                "description":"Storage account to be used by Azure Synapse"
+            }
         },
         "sqlAdministratorLogin": {
-            "type": "string"
+            "type": "string",
+            "metadata":{
+                "description":"Administrator username provisioned for SQL Server"
+            }
         },
         "sqlAdministratorPassword": {
-            "type": "string"
+            "type": "secureString",
+            "metadata":{
+                "description":"Administrator password provisioned for SQL Server"
+            }
         },
         "synapseName": {
-            "type": "string"
+            "type": "string",
+            "metadata":{
+                "description":"Name for the Synapse resource"
+            }
         },        
         "sqlSku": {
-            "type": "string"
+            "type": "string",
+            "metadata":{
+                "description":"SQL Sku provisioned for Azure Synapse"
+            },
+            "allowedValues": ["DW100c","DW200c","DW300c","DW400c"]
         },
         "roleNameGuid": {
             "type": "string",
             "defaultValue": "[newGuid()]",
             "metadata": {
-                "description": "A new GUID used to identify a role assignment - do not change this"
+                "description": "A new GUID used to identify a role assignment"
       }
     }        
     },
